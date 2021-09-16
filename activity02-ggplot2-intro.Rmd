@@ -1,6 +1,6 @@
 ---
 title: "Activity 2"
-author: "vinaybommireddy"
+author: "Vinay Bommireddy"
 output: github_document
 ---
 
@@ -114,14 +114,14 @@ For this boxplot, we want to double-encode the variable `species` to not only th
 In the code chunk below, add the missing code (i.e., replacing the `___`) to have our comparative boxplots also include some coloring.
 
 ```{r boxplot-colors}
-ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = species, ___ = ___)) +
+ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = species, fill=species)) +
   geom_boxplot()
 ```
 
 Now, comment on what you notice from these boxplots.
 
-**Response**:
-
+**Response**: Gentoo has greater median than chinstrap and adelie. we can observe that adelie has outliers.
+ 
 
 Another way to visualize distributions are with points.
 You may have heard of dotplots before (one-dimensional scatterplots).
@@ -129,15 +129,15 @@ We can create something similar with jitterplots using `geom_jitter`.
 In the code chunk below, complete it so that it produces a jitterplot.
 
 ```{r jitterplot}
-ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = species, ___ = ___)) +
-  ___()
+ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = species, fill = species)) +
+  geom_jitter()
 ```
 
 Comment on the strengths of the boxplot compared to the jitterplot and vice versa.
 That is, what can you easily determine by looking at the boxplot?
 What about the jitterplot?
 
-**Response**:
+**Response**: In Boxplot we can easily find out outliers where as in jitter plot we can not differentiate between outliers and the normal data points.
 
 
 Knit, then stage everything listed in your **Git** pane, commit (with a meaningful commit message), and push  to your GitHub repo.
