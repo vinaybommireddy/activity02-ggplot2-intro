@@ -188,7 +188,8 @@ GitHub and compare/contrast your `activity02-ggplot2-intro.Rmd` and
 `activity02-ggplot2-intro.md` files. Which is easier to read? Which
 looks more professional?
 
-**Response**:
+**Response**: activity02-ggplot2-intro.md looks more professional and
+easier to read.
 
 Now, wouldn’t it be nice if we could combine these two plots so that we
 get the benefits of both!?! That is, how can we overlay the jitterplot
@@ -198,10 +199,22 @@ my *hint*:
 -   Re-create the boxplot with color that you did above, then
 -   *Add* another geometry layer for the jitterplot.
 
-Play around with doing the jitterplot laid over the boxplot and the
+``` r
+ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = species, fill = species)) +
+ geom_boxplot()+ geom_jitter()
+```
+
+    ## Warning: Removed 2 rows containing non-finite values (stat_boxplot).
+
+    ## Warning: Removed 2 rows containing missing values (geom_point).
+
+![](activity02-ggplot2-intro_files/figure-gfm/box-jitter-combined-1.png)<!-- -->
+
+Play around with doing the boxplot laid over the jitterplot and the
 boxplot laid over the jitterplot. Which do you prefer? Why?
 
-**Response**:
+**Response**: I do pefer the jitterplot laid over the boxplot because we
+can see all points clearly
 
 This is getting us closer to one of my favorite plots - the raincloud
 plot. We are not quite ready to create this plot, but we will get there
@@ -214,6 +227,17 @@ but not the individual boxplots - you want the boxplots to be the
 default white coloring. In the code chunk below, explore different
 methods to try to create this plot. A hint, all `geom_*` have a
 `mapping` argument.
+
+``` r
+ggplot(data = penguins) +
+ geom_boxplot(mapping = aes(x = flipper_length_mm, y = species))+ geom_jitter(mapping = aes(x = flipper_length_mm, y = species, color = species))
+```
+
+    ## Warning: Removed 2 rows containing non-finite values (stat_boxplot).
+
+    ## Warning: Removed 2 rows containing missing values (geom_point).
+
+![](activity02-ggplot2-intro_files/figure-gfm/jitter-colored-only-1.png)<!-- -->
 
 In the above code chunk, continue to play around with having the
 aesthetics mapped in the different layers. For example, how does having
