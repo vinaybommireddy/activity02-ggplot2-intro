@@ -230,7 +230,7 @@ methods to try to create this plot. A hint, all `geom_*` have a
 
 ``` r
 ggplot(data = penguins) +
- geom_boxplot(mapping = aes(x = flipper_length_mm, y = species))+ geom_jitter(mapping = aes(x = flipper_length_mm, y = species, color = species))
+ geom_boxplot(mapping = aes(x = flipper_length_mm, y = species))+ geom_jitter(mapping = aes(x = flipper_length_mm, y = species,color=species))
 ```
 
     ## Warning: Removed 2 rows containing non-finite values (stat_boxplot).
@@ -244,7 +244,9 @@ aesthetics mapped in the different layers. For example, how does having
 all of them mapped in the `ggplot` call compared to having these instead
 mapped in the `geom_boxplot` layer? Comment on what you notice.
 
-**Response**:
+**Response**: Having all of them mapped in the ggplot call gives color
+to both boxplot and jitterplot whereas mapping aesthetics to
+geom\_boxplot gives color only to jitterplot
 
 Knit, then stage everything listed in your **Git** pane, commit (with a
 meaningful commit message), and push to your GitHub repo. Go to GitHub
@@ -266,6 +268,39 @@ each of `species`, `sex`, and `island` (you should have three total
 graphs). Using these three graphs to discuss which of these three
 categorical variables seems to be contributing more to these two peaks
 and explain your reasoning.
+
+``` r
+ggplot(data = penguins, aes(x = bill_length_mm,fill=species))+ 
+  geom_histogram()
+```
+
+    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+
+    ## Warning: Removed 2 rows containing non-finite values (stat_bin).
+
+![](activity02-ggplot2-intro_files/figure-gfm/bill_length_by_species-1.png)<!-- -->
+
+``` r
+ggplot(data = penguins, aes(x = bill_length_mm,fill=sex))+ 
+  geom_histogram()
+```
+
+    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+
+    ## Warning: Removed 2 rows containing non-finite values (stat_bin).
+
+![](activity02-ggplot2-intro_files/figure-gfm/bill_length_by_sex-1.png)<!-- -->
+
+``` r
+ggplot(data = penguins, aes(x = bill_length_mm,fill=island))+ 
+  geom_histogram()
+```
+
+    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+
+    ## Warning: Removed 2 rows containing non-finite values (stat_bin).
+
+![](activity02-ggplot2-intro_files/figure-gfm/bill_length_by_island-1.png)<!-- -->
 
 **Response**:
 

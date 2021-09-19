@@ -179,14 +179,16 @@ A hint, all `geom_*` have a `mapping` argument.
 
 ```{r jitter-colored-only}
 ggplot(data = penguins) +
- geom_boxplot(mapping = aes(x = flipper_length_mm, y = species))+ geom_jitter(mapping = aes(x = flipper_length_mm, y = species, color = species))
+ geom_boxplot(mapping = aes(x = flipper_length_mm, y = species))+ geom_jitter(mapping = aes(x = flipper_length_mm, y = species,color=species))
 ```
+
+
 
 In the above code chunk, continue to play around with having the aesthetics mapped in the different layers.
 For example, how does having all of them mapped in the `ggplot` call compared to having these instead mapped in the `geom_boxplot` layer?
 Comment on what you notice.
 
-**Response**: 
+**Response**: Having all of them mapped in the ggplot call gives color to both boxplot and jitterplot whereas mapping aesthetics to geom_boxplot gives color only to jitterplot
 
 
 Knit, then stage everything listed in your **Git** pane, commit (with a meaningful commit message), and push  to your GitHub repo.
@@ -204,20 +206,23 @@ Create graphs to explore the relationship between `bill_length_mm` and each of `
 Using these three graphs to discuss which of these three categorical variables seems to be contributing more to these two peaks and explain your reasoning.
 
 ```{r bill_length_by_species}
-
+ggplot(data = penguins, aes(x = bill_length_mm,fill=species))+ 
+  geom_histogram()
 ```
 
 
 ```{r bill_length_by_sex}
-
+ggplot(data = penguins, aes(x = bill_length_mm,fill=sex))+ 
+  geom_histogram()
 ```
 
 
 ```{r bill_length_by_island}
-
+ggplot(data = penguins, aes(x = bill_length_mm,fill=island))+ 
+  geom_histogram()
 ```
 
-**Response**:
+**Response**: 
 
 
 
